@@ -37,8 +37,12 @@ def share(request,ref_id):
 
 
 def home(request):
+
 	#print request.META.get("REMOTE_ADDR")
 	#print request.META.get("HTTP_X_FORWARDED_FOR")
+
+	print request.META.get("REMOTE_ADDR")
+
 	#print request.POST['email'],request.POST['email2']
 	
 	#this is using regular django forms
@@ -54,6 +58,7 @@ def home(request):
 
 
 	#this is using moddel form
+	import pdb; pdb.set_trace()
 	form = JoinForm(request.POST or None)
 	if form.is_valid():
 		new_join=form.save(commit=False)
