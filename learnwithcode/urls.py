@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from join.views import home
+from join.views import home,share
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
+    url(r'^(?P<ref_id>.*)$', share, name='share'),
     #url(r'^home2/$', home2, name='home2'),
 ]
