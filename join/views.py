@@ -6,7 +6,7 @@ from .forms import EmailForm,JoinForm
 from .models import Join
 
 def home(request):
-	print request.meta.get(REMOTE_ADDR)
+	print request.META.get("REMOTE_ADDR")
 	#print request.POST['email'],request.POST['email2']
 	
 	#this is using regular django forms
@@ -22,6 +22,7 @@ def home(request):
 
 
 	#this is using moddel form
+	import pdb; pdb.set_trace()
 	form = JoinForm(request.POST or None)
 	if form.is_valid():
 		new_join=form.save(commit=False)
